@@ -46,5 +46,9 @@ export class KanbanBoardComponent {
     this.reloadTasks();
   }
 
+  deleteTask(task: Task): void {
+    this.taskService.deleteTask(task.id);
+    this.reloadTasks();
+  }
 
 }

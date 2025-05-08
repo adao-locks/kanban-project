@@ -9,8 +9,13 @@ import { Task } from '../../models/task.model';
 export class TaskCardComponent {
   @Input() task!: Task;
   @Output() statusChanged = new EventEmitter<{ task: Task, direction: 'forward' | 'back' }>();
+  @Output() deleteTask = new EventEmitter<Task>();
 
   moveTask(direction: 'forward' | 'back'): void {
     this.statusChanged.emit({ task: this.task, direction});
+  }
+
+  delete(): void {
+    this.deleteTask.emit(this.task);
   }
 }
