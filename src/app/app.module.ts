@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { KanbanBoardComponent } from './components/kanban-board/kanban-board.component';
 import { TaskCardComponent } from './components/task-card/task-card.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { TaskFormComponent } from './components/task-form/task-form.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

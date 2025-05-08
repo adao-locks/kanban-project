@@ -1,1 +1,19 @@
-<p>task-form works!</p>
+<form (ngSubmit)="addTask()" #taskForm="ngForm" class="task-form">
+  <input type="text" name="title" [(ngModel)]="title" placeholder="Título da tarefa" required />
+
+  <textarea name="description" [(ngModel)]="description" placeholder="Descrição (opcional)"></textarea>
+
+  <select name="status" [(ngModel)]="status">
+    <option value="todo">A Fazer</option>
+    <option value="in-progress">Em Progresso</option>
+    <option value="done">Concluído</option>
+  </select>
+
+  <select name="priority" [(ngModel)]="priority">
+    <option value="low">Baixa</option>
+    <option value="medium" selected>Média</option>
+    <option value="high">Alta</option>
+  </select>
+
+  <button type="submit">Adicionar</button>
+</form>

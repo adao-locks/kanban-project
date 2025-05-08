@@ -1,1 +1,5 @@
-<p>task-card works!</p>
+<div class="task-card">
+  <h4>{{ task.title }}</h4>
+  <p *ngIf="task.description">{{ task.description }}</p>
+  <small class="status">Status: {{ task.status }}</small>
+</div>
