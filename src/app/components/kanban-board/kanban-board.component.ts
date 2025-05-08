@@ -29,4 +29,22 @@ export class KanbanBoardComponent {
     this.done = tasks.filter(t => t.status === 'done');
   }
 
+  handleStatusChange(event: { task: Task, direction: 'forward' | 'back' }): void {
+    const { task, direction } = event;
+    const currentStatus = task.status;
+
+    const statusOrder: Task['status'][] = ['todo', 'in-progress', 'done'];
+    const index = statusOrder.indexOf(currentStatus);
+
+    if (direction === 'forward' && index < statusOrder.length - 1) {
+      task.status = statusOrder[index + 1];
+    } else if (direction === 'back' && index > 0) {
+      task.status = statusOrder[index - 1];
+    }
+
+    this.taskService.updateTask(task);
+    this.reloadTasks();
+  }
+
+
 }

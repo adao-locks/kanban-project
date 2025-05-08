@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../../models/task.model';
 
 @Component({
@@ -8,4 +8,9 @@ import { Task } from '../../models/task.model';
 })
 export class TaskCardComponent {
   @Input() task!: Task;
+  @Output() statusChanged = new EventEmitter<{ task: Task, direction: 'forward' | 'back' }>();
+
+  moveTask(direction: 'forward' | 'back'): void {
+    this.statusChanged.emit({ task: this.task, direction});
+  }
 }

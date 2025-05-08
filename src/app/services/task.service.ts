@@ -25,10 +25,10 @@ export class TaskService {
   }
 
   updateTask(updatedTask: Task): void {
-    const tasks = this.getTasks().map(task =>
-      task.id === updatedTask.id ? updatedTask : task
+    const tasks = this.getTasks().map(t =>
+      t.id === updatedTask.id ? updatedTask : t
     );
-    this.saveTasks(tasks);
+    localStorage.setItem(this.storageKey, JSON.stringify(tasks));
   }
 
   deleteTask(taskId: string): void {

@@ -2,4 +2,13 @@
   <h4>{{ task.title }}</h4>
   <p *ngIf="task.description">{{ task.description }}</p>
   <small class="status">Status: {{ task.status }}</small>
+
+  <div class="actions">
+    <button *ngIf="task.status !== 'todo'" (click)="moveTask('back')">
+      ←
+    </button>
+    <button *ngIf="task.status !== 'done'" (click)="moveTask('forward')">
+      →
+    </button>
+  </div>
 </div>
