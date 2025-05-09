@@ -1,23 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Cal+Sans&display=swap');
 
 :root {
-  /* Cores principais */
-  --color-primary: #4e73df;        /* Azul médio */
-  --color-primary-dark: #2e59d9;
-  --color-secondary: #858796;      /* Cinza */
-  --color-accent: #1cc88a;         /* Verde suave */
-  --color-danger: #e74a3b;         /* Vermelho */
+  --background: #f4f4f4;
+  --background-secondary: #ddd;
+  --text-primary: #000;
 
-  /* Fundo e texto */
+  --color-primary: #4e73df;
+  --color-primary-dark: #2e59d9;
+  --color-secondary: #858796;
+  --color-accent: #1cc88a;
+  --color-danger: #e74a3b;
+
   --color-background: #f8f9fc;
   --color-surface: #ffffff;
   --color-text: #343a40;
   --color-text-secondary: #949494;
 
-  /* Prioridades */
   --priority-low: #d1ecf1;
   --priority-medium: #fff3cd;
   --priority-high: #f8d7da;
+}
+
+.dark-theme {
+  --background: #121212;
+  --background-secondary: #1e1e1e;
+  --text-primary: #fff;
 }
 
 * {
@@ -29,8 +36,14 @@
   font-style: normal;
 }
 
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+}
+
 .kanban-board {
-  height: 90vh;
+  height: 80vh;
 }
 
 .kanban-controls {

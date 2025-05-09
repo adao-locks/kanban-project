@@ -1,14 +1,14 @@
 <div class="task-card" [ngClass]="task.priority">
   <h4>{{ task.title }}</h4>
-  <p *ngIf="task.description">{{ task.description }}</p>
+  <p class="description-task" *ngIf="task.description">{{ task.description }}</p>
+
+
 
   <div class="task-info">
     <span class="priority-label">
       Prioridade: {{ traduzirPrioridade(task.priority) }}
     </span>
   </div>
-
-  <small class="status">Status: {{ task.status }}</small>
 
   <div class="actions">
     <button *ngIf="task.status !== 'todo'" (click)="moveTask('back')">

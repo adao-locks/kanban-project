@@ -1,0 +1,35 @@
+.sidebar {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  width: 15vw;
+  height: 100vh;
+  padding: 2rem;
+  transition: width 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar.hidden {
+  width: 5.5vw;
+  height: 100vh;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.sidebar.hidden .toggle-btn {
+  transform: rotate(180deg);
+}
+
+nav {
+  display: block;
+}
+
+.sidebar.hidden nav {
+  display: none;
+}

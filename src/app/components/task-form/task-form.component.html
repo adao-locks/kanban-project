@@ -1,7 +1,27 @@
 <form (ngSubmit)="addTask()" #taskForm="ngForm" class="task-form">
+
+  <div class="kanban-form-title">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Colunas -->
+    <rect x="2" y="2" width="5" height="20" rx="1" fill="#333"/>
+    <rect x="9" y="2" width="5" height="20" rx="1" fill="#333"/>
+    <rect x="16" y="2" width="5" height="20" rx="1" fill="#333"/>
+    <!-- Tarefas -->
+    <rect x="3" y="4" width="3" height="2" rx="0.5" fill="#fff"/>
+    <rect x="3" y="8" width="3" height="2" rx="0.5" fill="#fff"/>
+    <rect x="10" y="4" width="3" height="2" rx="0.5" fill="#fff"/>
+    <rect x="17" y="4" width="3" height="2" rx="0.5" fill="#fff"/>
+    </svg>
+
+    <h4>Cadastrar tarefa</h4>
+  </div>
+
   <input type="text" name="title" [(ngModel)]="title" placeholder="Título da tarefa" required />
 
-  <textarea name="description" [(ngModel)]="description" placeholder="Descrição (opcional)"></textarea>
+  <textarea name="description" [maxLength]="200" [(ngModel)]="description" placeholder="Descrição"></textarea>
+  <div class="char-counter">
+    {{ description.length }}/200
+  </div>
 
   <select name="status" [(ngModel)]="status">
     <option value="todo">A Fazer</option>

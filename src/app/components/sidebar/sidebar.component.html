@@ -1,0 +1,11 @@
+<div class="sidebar" [class.hidden]="isHidden">
+  <button (click)="toggleSidebar()" class="toggle-btn">
+    {{ isHidden ? '☰' : '✖' }}
+  </button>
+
+  <nav *ngIf="!isHidden">
+    <div class="config">
+      <button (click)="toggleTheme()">🌓 Tema</button>
+    </div>
+  </nav>
+</div>

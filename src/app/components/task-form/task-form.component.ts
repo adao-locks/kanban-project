@@ -36,11 +36,16 @@ export class TaskFormComponent implements OnChanges {
     task.priority = this.priority;
 
     if (this.taskToEdit) {
-      task.id = this.taskToEdit.id; // mantém o ID da tarefa que está sendo editada
+      task.id = this.taskToEdit.id;
       this.taskService.updateTask(task);
     } else {
-      task.id = crypto.randomUUID(); // novo ID para tarefa nova
+      task.id = crypto.randomUUID();
       this.taskService.addTask(task);
+    }
+
+    if (this.description.length > 200) {
+      alert('A descrição excede o limite de 200 caracteres.');
+      return;
     }
 
     this.taskAdded.emit();
