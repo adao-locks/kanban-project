@@ -22,13 +22,6 @@ export class KanbanBoardComponent {
     this.done = tasks.filter(t => t.status === 'done');
   }
 
-  reloadTasks(): void {
-    const tasks = this.taskService.getTasks();
-    this.todo = tasks.filter(t => t.status === 'todo');
-    this.inProgress = tasks.filter(t => t.status === 'in-progress');
-    this.done = tasks.filter(t => t.status === 'done');
-  }
-
   handleStatusChange(event: { task: Task, direction: 'forward' | 'back' }): void {
     const { task, direction } = event;
     const currentStatus = task.status;
@@ -61,5 +54,24 @@ export class KanbanBoardComponent {
     this.editingTask = null;
   }
 
+  selectedPriority: 'low' | 'medium' | 'high' | '' = '';
+sortByPriority: boolean = false;
+
+reloadTasks(): void {
+  let tasks = this.taskService.getTasks();
+
+  if (this.selectedPriority) {
+    tasks = tasks.filter(t => t.priority === this.selectedPriority);
+  }
+
+    if (this.sortByPriority) {
+      const priorityOrder = { high: 0, medium: 1, low: 2 };
+      tasks.sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
+    }
+
+    this.todo = tasks.filter(t => t.status === 'todo');
+    this.inProgress = tasks.filter(t => t.status === 'in-progress');
+    this.done = tasks.filter(t => t.status === 'done');
+  }
 
 }

@@ -28,3 +28,16 @@
   font-weight: 400;
   font-style: normal;
 }
+
+.kanban-board {
+  height: 90vh;
+}
+
+.kanban-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem 2rem;
+  align-items: center;
+  height: 100%;
+}
