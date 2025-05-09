@@ -15,5 +15,7 @@
     <option value="high">Alta</option>
   </select>
 
-  <button type="submit">Adicionar</button>
+  <button type="submit">
+    {{ taskToEdit ? 'Atualizar Tarefa' : 'Adicionar Tarefa' }}
+  </button>
 </form>

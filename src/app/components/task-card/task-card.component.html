@@ -6,6 +6,7 @@
   <div class="actions">
     <button *ngIf="task.status !== 'todo'" (click)="moveTask('back')">←</button>
     <button *ngIf="task.status !== 'done'" (click)="moveTask('forward')">→</button>
+    <button (click)="onEditClick()">✏️</button>
     <button class="delete" (click)="delete()">🗑️</button>
   </div>
 </div>

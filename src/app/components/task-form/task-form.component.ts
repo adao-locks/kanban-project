@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges } from '@angular/core';
 import { Task } from '../../models/task.model';
 import { TaskService } from '../../services/task.service';
 
@@ -7,27 +7,48 @@ import { TaskService } from '../../services/task.service';
   templateUrl: './task-form.component.html',
   styleUrls: ['./task-form.component.scss']
 })
-export class TaskFormComponent {
+export class TaskFormComponent implements OnChanges {
   title: string = '';
   description: string = '';
   status: 'todo' | 'in-progress' | 'done' = 'todo';
   priority: 'low' | 'medium' | 'high' = 'medium';
 
+  @Input() taskToEdit: Task | null = null;
   @Output() taskAdded = new EventEmitter<void>();
+  @Output() clearForm = new EventEmitter<void>();
 
   constructor(private taskService: TaskService) {}
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['taskToEdit'] && this.taskToEdit) {
+      this.title = this.taskToEdit.title;
+      this.description = this.taskToEdit.description || '';
+      this.status = this.taskToEdit.status;
+      this.priority = this.taskToEdit.priority || 'medium';
+    }
+  }
+
   addTask(): void {
-    const newTask = new Task();
-    newTask.title = this.title;
-    newTask.description = this.description;
-    newTask.status = this.status;
-    newTask.priority = this.priority;
+    const task = new Task();
+    task.title = this.title;
+    task.description = this.description;
+    task.status = this.status;
+    task.priority = this.priority;
 
-    this.taskService.addTask(newTask);
-    this.taskAdded.emit(); // avisa o componente pai que uma tarefa foi adicionada
+    if (this.taskToEdit) {
+      task.id = this.taskToEdit.id; // mantém o ID da tarefa que está sendo editada
+      this.taskService.updateTask(task);
+    } else {
+      task.id = crypto.randomUUID(); // novo ID para tarefa nova
+      this.taskService.addTask(task);
+    }
 
-    // limpa o formulário
+    this.taskAdded.emit();
+    this.clearForm.emit();
+    this.resetForm();
+  }
+
+  private resetForm(): void {
     this.title = '';
     this.description = '';
     this.status = 'todo';

@@ -51,4 +51,15 @@ export class KanbanBoardComponent {
     this.reloadTasks();
   }
 
+  editingTask: Task | null = null;
+
+  editTask(task: Task): void {
+    this.editingTask = { ...task }; // copia para não alterar direto
+  }
+
+  onFormCleared(): void {
+    this.editingTask = null;
+  }
+
+
 }

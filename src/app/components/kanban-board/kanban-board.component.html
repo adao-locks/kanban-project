@@ -4,7 +4,8 @@
     <app-task-card *ngFor="let task of todo"
                     [task]="task"
                     (statusChanged)="handleStatusChange($event)"
-                    (deleteTask)="deleteTask($event)">
+                    (deleteTask)="deleteTask($event)"
+                    (editTask)="editTask($event)">
                     ></app-task-card>
   </div>
   <div class="kanban-column">
@@ -12,7 +13,8 @@
     <app-task-card *ngFor="let task of inProgress"
                     [task]="task"
                     (statusChanged)="handleStatusChange($event)"
-                    (deleteTask)="deleteTask($event)">
+                    (deleteTask)="deleteTask($event)"
+                    (editTask)="editTask($event)">
     </app-task-card>
   </div>
   <div class="kanban-column">
@@ -20,8 +22,13 @@
     <app-task-card *ngFor="let task of done"
                     [task]="task"
                     (statusChanged)="handleStatusChange($event)"
-                    (deleteTask)="deleteTask($event)">
+                    (deleteTask)="deleteTask($event)"
+                    (editTask)="editTask($event)">
                     ></app-task-card>
   </div>
-  <app-task-form (taskAdded)="reloadTasks()"></app-task-form>
+  <app-task-form
+  [taskToEdit]="editingTask"
+  (taskAdded)="reloadTasks()"
+  (clearForm)="onFormCleared()">
+  </app-task-form>
 </div>

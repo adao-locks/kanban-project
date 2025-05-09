@@ -10,6 +10,7 @@ export class TaskCardComponent {
   @Input() task!: Task;
   @Output() statusChanged = new EventEmitter<{ task: Task, direction: 'forward' | 'back' }>();
   @Output() deleteTask = new EventEmitter<Task>();
+  @Output() editTask = new EventEmitter<Task>();
 
   moveTask(direction: 'forward' | 'back'): void {
     this.statusChanged.emit({ task: this.task, direction});
@@ -17,5 +18,9 @@ export class TaskCardComponent {
 
   delete(): void {
     this.deleteTask.emit(this.task);
+  }
+
+  onEditClick(): void {
+    this.editTask.emit(this.task); // Emite a tarefa, não o click
   }
 }
