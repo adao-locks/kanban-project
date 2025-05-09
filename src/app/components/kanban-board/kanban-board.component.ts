@@ -54,7 +54,7 @@ export class KanbanBoardComponent {
   editingTask: Task | null = null;
 
   editTask(task: Task): void {
-    this.editingTask = { ...task }; // copia para não alterar direto
+    this.editingTask = { ...task };
   }
 
   onFormCleared(): void {

@@ -1,5 +1,5 @@
 .task-card {
-  background-color: #ffffff;
+  background-color: var(-color-secondary);
   border-radius: 8px;
   padding: 12px;
   margin-bottom: 10px;
@@ -25,7 +25,7 @@
     display: block;
     margin-top: 8px;
     font-size: 12px;
-    color: #777;
+    color: var(--color-text-secondary);
   }
 }
 
@@ -49,4 +49,29 @@
       opacity: 0.9;
     }
   }
+}
+
+.task-card.low {
+  background-color: var(--priority-low);
+}
+
+.task-card.medium {
+  background-color: var(--priority-medium);
+}
+
+.task-card.high {
+  background-color: var(--priority-high);
+}
+
+.task-info {
+  height: min-content;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 1%;
+  text-align: center;
+}
+
+.priority-label {
+  font-weight: bold;
+  font-size: 0.9rem;
 }

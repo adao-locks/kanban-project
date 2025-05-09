@@ -1,12 +1,35 @@
-<div class="task-card">
+<div class="task-card" [ngClass]="task.priority">
   <h4>{{ task.title }}</h4>
   <p *ngIf="task.description">{{ task.description }}</p>
+
+  <div class="task-info">
+    <span class="priority-label">
+      Prioridade: {{ traduzirPrioridade(task.priority) }}
+    </span>
+  </div>
+
   <small class="status">Status: {{ task.status }}</small>
 
   <div class="actions">
-    <button *ngIf="task.status !== 'todo'" (click)="moveTask('back')">←</button>
-    <button *ngIf="task.status !== 'done'" (click)="moveTask('forward')">→</button>
-    <button (click)="onEditClick()">✏️</button>
-    <button class="delete" (click)="delete()">🗑️</button>
+    <button *ngIf="task.status !== 'todo'" (click)="moveTask('back')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 18L9 12L15 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <button *ngIf="task.status !== 'done'" (click)="moveTask('forward')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 18L15 12L9 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <button (click)="onEditClick()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 20H21M3 20L4.5 15.5L16.5 3.5C17.3284 2.67157 18.6716 2.67157 19.5 3.5C20.3284 4.32843 20.3284 5.67157 19.5 6.5L7.5 18.5L3 20Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <button class="delete" (click)="delete()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 6H5H21M8 6V4C8 3.44772 8.44772 3 9 3H15C15.5523 3 16 3.44772 16 4V6M10 11V17M14 11V17M6 6H18V20C18 20.5523 17.5523 21 17 21H7C6.44772 21 6 20.5523 6 20V6Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
   </div>
 </div>

@@ -23,4 +23,13 @@ export class TaskCardComponent {
   onEditClick(): void {
     this.editTask.emit(this.task); // Emite a tarefa, não o click
   }
+
+  traduzirPrioridade(prio: 'low' | 'medium' | 'high'): string {
+    switch (prio) {
+      case 'low': return 'Baixa';
+      case 'medium': return 'Média';
+      case 'high': return 'Alta';
+      default: return '';
+    }
+  }
 }
