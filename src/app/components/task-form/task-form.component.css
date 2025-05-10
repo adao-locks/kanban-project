@@ -1,3 +1,25 @@
+h4 {
+  color: var(--color-text-secondary);
+}
+
+input::placeholder {
+  color: var(--color-text-secondary);
+}
+
+textarea::placeholder {
+  color: var(--color-text-secondary);
+}
+
+input{
+  background-color: var(--background-secondary);
+  color: var(--color-text-secondary);
+}
+
+select {
+  background-color: var(--background-secondary);
+  color: var(--color-text-secondary);
+}
+
 .task-form {
   display: flex;
   flex-direction: column;
@@ -20,6 +42,7 @@
     cursor: pointer;
     font-weight: bold;
     transition: 0.2s;
+    background-color: var(--background-secondary);
   }
 
   button:hover {
@@ -40,7 +63,7 @@
 
 .char-counter {
   font-size: 0.75rem;
-  color: #888;
+  color: var(--color-text);
   text-align: right;
   margin-top: 4px;
 }
@@ -48,4 +71,6 @@
 textarea {
   resize: none;
   min-height: 200px;
+  background-color: var(--background-secondary);
+  color: var(--color-text-secondary);
 }

@@ -2,13 +2,14 @@
   display: flex;
   gap: 16px;
   padding: 16px;
-  background-color: #f4f4f4;
+  background-color: var(--background);
   box-sizing: border-box;
+  color: var(--color-text);
 }
 
 .kanban-column {
   flex: 1;
-  background-color: #fff;
+  background-color: var(--background-secondary);
   border-radius: 8px;
   padding: 12px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -25,4 +26,8 @@ h3 {
 
 app-task-form{
   width: 20rem;
+}
+
+label {
+  color: var(--color-text);
 }
