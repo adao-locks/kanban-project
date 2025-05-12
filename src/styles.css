@@ -1,36 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Cal+Sans&display=swap');
 
 :root {
-  --background: #f4f4f4;
-  --background-secondary: #ddd;
-  --color-text: #343a40;
-  --color-text-secondary: #181818;
+  /* Backgrounds */
+  --background: #f9f9f9;
+  --background-secondary: #ffffff;
 
-  --color-primary: #4e73df;
-  --color-primary-dark: #2e59d9;
-  --color-secondary: #858796;
-  --color-accent: #1cc88a;
-  --color-danger: #e74a3b;
+  /* Textos */
+  --color-text: #1e1e1e;
+  --color-text-secondary: #6c6c6c;
 
-  --priority-low: #d1ecf1;
+  /* Cores principais */
+  --color-primary: #4a90e2;
+  --color-secondary: #7b8a8b;
+  --color-accent: #1fc227;
+  --color-danger: #e74c3c;
+
+  /* Prioridades */
+  --priority-low: #d1e7dd;
   --priority-medium: #fff3cd;
   --priority-high: #f8d7da;
 }
 
 .dark-theme {
-  --background: #3d3d3d;
-  --background-secondary: #535353;
-  --color-text: #fafafa;
-  --color-text-secondary: #dbdbdb;
+  --background: #121212;
+  --background-secondary: #1e1e1e;
 
-  --color-primary: #37519e;
-  --color-primary-dark: #15338d;
-  --color-secondary: #4f5057;
-  --color-accent: #1a7a57;
+  /* Textos */
+  --color-text: #f0f0f0;
+  --color-text-secondary: #b0b0b0;
 
-  --priority-low: #3d7a85;
-  --priority-medium: #9b894e;
-  --priority-high: #7c3d41;
+  /* Cores principais */
+  --color-primary: #3b78c2;
+  --color-secondary: #7b8a8b;
+  --color-accent: #1fc227;
+  --color-danger: #e74c3c;
+
+  /* Prioridades (tons sutis no escuro) */
+  --priority-low: #234235;
+  --priority-medium: #4b3d18;
+  --priority-high: #472b2b;
 }
 
 * {
