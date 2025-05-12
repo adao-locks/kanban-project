@@ -60,3 +60,7 @@ body {
   align-items: center;
   height: 100%;
 }
+
+app-sidebar {
+  background-color: red;
+}

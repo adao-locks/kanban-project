@@ -1,3 +1,7 @@
+.kanban-content {
+  margin-left: 5%;
+}
+
 .kanban-board {
   display: flex;
   gap: 16px;
