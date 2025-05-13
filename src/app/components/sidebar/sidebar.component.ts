@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,10 +6,14 @@ import { Component } from '@angular/core';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
-  isHidden = false;
+  isOpen = false;
 
   toggleSidebar() {
-    this.isHidden = !this.isHidden;
+    this.isOpen = !this.isOpen;
+  }
+
+  closeSidebar() {
+    this.isOpen = false;
   }
 
   toggleTheme() {

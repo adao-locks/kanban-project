@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'kanban-project';
+  isSidebarOpen: boolean = false;
+
+  togglesSidebar(open: boolean) {
+    this.isSidebarOpen = open;
+  }
+
+  closeSidebar() {
+    this.isSidebarOpen = false;
+  }
+
 }

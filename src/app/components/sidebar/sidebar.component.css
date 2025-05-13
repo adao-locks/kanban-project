@@ -1,15 +1,30 @@
+.sidebar-container {
+  position: relative;
+  z-index: 999;
+}
+
 .sidebar {
   background-color: var(--background-secondary);
   color: var(--text-primary);
-  width: 15vw;
   height: 100vh;
   padding: 1.5vw;
+  width: 4.2vw;
+  overflow: hidden;
   transition: width 0.3s ease, transform 0.3s ease;
 }
 
-.sidebar.hidden {
-  width: 4.5vw;
-  height: 100vh;
+.sidebar.open {
+  width: 25vw;
+  transition: width 0.3s ease, transform 0.3s ease;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.3);
 }
 
 .toggle-btn {
@@ -22,16 +37,8 @@
   width: 1.2vw;
 }
 
-.sidebar.hidden .toggle-btn {
+.sidebar.open .toggle-btn {
   transform: rotate(180deg);
-}
-
-nav {
-  display: block;
-}
-
-.sidebar.hidden nav {
-  display: none;
 }
 
 .dark-mode-button {

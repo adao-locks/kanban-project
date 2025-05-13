@@ -1,11 +1,15 @@
-<div class="sidebar" [class.hidden]="!isHidden">
+<div class="overlay" *ngIf="isOpen" (click)="closeSidebar()"></div>
+
+<div class="sidebar" [class.open]="isOpen">
   <button (click)="toggleSidebar()" class="toggle-btn">
-    {{ isHidden ? '✖' : '☰' }}
+    {{ isOpen ? '✖' : '☰' }}
   </button>
 
-  <nav *ngIf="isHidden">
+
+  <nav *ngIf="isOpen">
     <div class="config">
       <button class="dark-mode-button" (click)="toggleTheme()">Dark Mode</button>
     </div>
   </nav>
 </div>
+
