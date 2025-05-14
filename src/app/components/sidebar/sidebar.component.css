@@ -1,6 +1,11 @@
-.sidebar-container {
+.content-container {
   position: relative;
-  z-index: 999;
+  z-index: 5;
+}
+
+.sidebar-container {
+  position: absolute;
+  left: 0;
 }
 
 .sidebar {
@@ -15,7 +20,6 @@
 
 .sidebar.open {
   width: 25vw;
-  transition: width 0.3s ease, transform 0.3s ease;
 }
 
 .overlay {
@@ -24,7 +28,19 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0); /* Transparente por padrão */
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: left 0.3s ease, background-color 0.3s ease, opacity 0.3s ease, width 0.3s ease; /* Adiciona width */
+}
+
+.overlay.open {
+  left: 25vw; /* Alinha com a largura da sidebar aberta */
+  width: calc(100% - 25vw); /* Ajusta a largura para cobrir apenas a área fora da sidebar */
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .toggle-btn {
