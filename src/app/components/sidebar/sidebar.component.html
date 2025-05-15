@@ -8,7 +8,17 @@
 
   <nav *ngIf="isOpen">
     <div class="config">
-      <button class="dark-mode-button" (click)="toggleTheme()">Dark Mode</button>
+
+    <div class="dmButton">
+      <label class="container">
+          <input class="dark-mode-button" type="checkbox" (click)="toggleTheme()" id="toggle"/>
+          <span class="slider round">
+              <div class="background"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+          </span>
+      </label>
+    </div>
     </div>
   </nav>
 </div>
