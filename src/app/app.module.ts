@@ -9,6 +9,7 @@ import { TaskCardComponent } from './components/task-card/task-card.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { FormsModule } from '@angular/forms';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     KanbanBoardComponent,
     TaskCardComponent,
     TaskFormComponent,
-    SidebarComponent
+    SidebarComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,

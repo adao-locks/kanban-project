@@ -35,3 +35,11 @@ app-task-form{
 label {
   color: var(--color-text);
 }
+
+input, select {
+  padding: 2px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--background-secondary);
+  color: var(--color-text-secondary);
+}

@@ -75,3 +75,7 @@ textarea {
   background-color: var(--background-secondary);
   color: var(--color-text-secondary);
 }
+
+label {
+  font-size: 12px;
+}

@@ -11,6 +11,7 @@ export class TaskCardComponent {
   @Output() statusChanged = new EventEmitter<{ task: Task, direction: 'forward' | 'back' }>();
   @Output() deleteTask = new EventEmitter<Task>();
   @Output() editTask = new EventEmitter<Task>();
+  showConfirm = false;
 
   moveTask(direction: 'forward' | 'back'): void {
     this.statusChanged.emit({ task: this.task, direction});
@@ -31,5 +32,18 @@ export class TaskCardComponent {
       case 'high': return 'Alta';
       default: return '';
     }
+  }
+
+  confirmDelete() {
+    this.showConfirm = true;
+  }
+
+  cancelDelete() {
+    this.showConfirm = false;
+  }
+
+  confirmDeleteFinal() {
+    this.showConfirm = false;
+    this.delete();
   }
 }

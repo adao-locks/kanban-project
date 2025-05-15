@@ -15,7 +15,6 @@
   padding: 1.5vw;
   width: 4.2vw;
   overflow: hidden;
-  transition: width 0.3s ease, transform 0.3s ease;
 }
 
 .sidebar.open {
@@ -32,7 +31,6 @@
   z-index: 10;
   opacity: 0;
   pointer-events: none;
-  transition: left 0.3s ease, background-color 0.3s ease, opacity 0.3s ease, width 0.3s ease; /* Adiciona width */
 }
 
 .overlay.open {
@@ -93,7 +91,6 @@
   border-color: #2d3748;
 }
 
-/* Optional: Add a subtle glow effect on hover */
 .dark-mode-button:hover::after {
   content: '';
   position: absolute;
@@ -103,13 +100,4 @@
   height: 100%;
   background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
   pointer-events: none;
-}
-
-/* Optional: Disabled state */
-.dark-mode-button:disabled {
-  background: #2d3748;
-  color: #a0aec0;
-  cursor: not-allowed;
-  box-shadow: none;
-  border-color: #4a5568;
 }

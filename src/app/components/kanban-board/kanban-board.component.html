@@ -1,5 +1,16 @@
 <div class="kanban-content">
   <div class="kanban-controls">
+
+    <div class="kanban-search">
+    <label for="searchInput">Buscar: </label>
+    <input
+      id="searchInput"
+      type="text"
+      [(ngModel)]="searchTerm"
+      (input)="reloadTasks()"
+      placeholder="Digite o título ou descrição...">
+  </div>
+
     <div class="kanban-filters">
       <label for="priorityFilter">Filtrar por prioridade: </label>
       <select id="priorityFilter" [(ngModel)]="selectedPriority" (change)="reloadTasks()">
@@ -9,12 +20,14 @@
         <option value="low">Baixa</option>
       </select>
     </div>
+
     <div class="kanban-orders">
       <label>
         <input type="checkbox" [(ngModel)]="sortByPriority" (change)="reloadTasks()" />
         Ordenar por prioridade
       </label>
     </div>
+
   </div>
 
   <div class="kanban-board">

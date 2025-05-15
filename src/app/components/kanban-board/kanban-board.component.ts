@@ -9,6 +9,7 @@ import { TaskService } from '../../services/task.service';
 })
 export class KanbanBoardComponent {
 
+  searchTerm: string = '';
   todo: Task[] = [];
   inProgress: Task[] = [];
   done: Task[] = [];
@@ -68,6 +69,15 @@ reloadTasks(): void {
       const priorityOrder = { high: 0, medium: 1, low: 2 };
       tasks.sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
     }
+
+    if (this.searchTerm.trim()) {
+      const lowerTerm = this.searchTerm.toLowerCase();
+      tasks = tasks.filter(task =>
+        task.title.toLowerCase().includes(lowerTerm) ||
+        task.description?.toLowerCase().includes(lowerTerm)
+      );
+    }
+
 
     this.todo = tasks.filter(t => t.status === 'todo');
     this.inProgress = tasks.filter(t => t.status === 'in-progress');
