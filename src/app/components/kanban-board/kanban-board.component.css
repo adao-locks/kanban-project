@@ -19,6 +19,25 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+.task-list {
+  max-height: 68vh; /* ajustável conforme o layout */
+  overflow-y: auto;
+  padding-right: 4px; /* espaço pro scrollbar */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-list::-webkit-scrollbar {
+  width: 3px;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+
 .kanban-controls {
   height: min-content;
 }
@@ -37,7 +56,7 @@ label {
 }
 
 input, select {
-  padding: 2px;
+  padding: 5px;
   border: none;
   border-radius: 5px;
   background-color: var(--background-secondary);
