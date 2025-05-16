@@ -1,7 +1,7 @@
 <div class="overlay" [class.open]="isOpen" *ngIf="isOpen" (click)="closeSidebar()"></div>
 
 <div class="sidebar" [class.open]="isOpen">
-  <button (click)="toggleSidebar()" class="toggle-btn">
+  <button (click)="toggleSidebar()" class="toggle-btn" style="color: var(--color-text)">
     {{ isOpen ? '✖' : '☰' }}
   </button>
 
