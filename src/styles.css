@@ -20,6 +20,9 @@
   --priority-medium: #fff3cd;
   --priority-high: #f8d7da;
 
+  /* Outros */
+  --scrollbar: rgb(0,0,0,0.2);
+
   /* DARK MODE STYLES */
 
   --dark: #111111;
@@ -56,6 +59,9 @@
   --priority-low: #234235;
   --priority-medium: #4b3d18;
   --priority-high: #472b2b;
+
+  /* Outros */
+  --scrollbar: rgba(255, 255, 255, 0.2);
 }
 
 * {
